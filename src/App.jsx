@@ -18,16 +18,9 @@ const flowSteps = [
   {
     id: 'transaction',
     title: '2. Transaksi Penjualan',
-    goal: 'Simulasikan transaksi cash dan kredit.',
-    screens: ['Form transaksi', 'Jenis pembayaran', 'Ringkasan cicilan'],
-    keyActions: ['Auto kode TRX-000X', 'Validasi DP/tenor/gaji', 'Hitung angsuran'],
-  },
-  {
-    id: 'monitoring',
-    title: '3. Monitoring & Laporan',
-    goal: 'Lihat hasil transaksi lewat filter tanggal dan statistik.',
-    screens: ['Filter tanggal', 'Data grid transaksi', 'Summary total data'],
-    keyActions: ['Cari per nama produk', 'Filter rentang tanggal', 'Cek keuntungan'],
+    goal: 'Simulasikan transaksi cash/kredit sekaligus monitoring laporan.',
+    screens: ['Form transaksi', 'Ringkasan cicilan', 'Filter tanggal + data laporan'],
+    keyActions: ['Auto kode TRX-000X', 'Validasi DP/tenor/gaji', 'Cek keuntungan'],
   },
 ]
 
@@ -638,38 +631,6 @@ function App() {
 
             <section className="card">
               <h4>Data Transaksi</h4>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Kode</th>
-                    <th>Tanggal</th>
-                    <th>Produk</th>
-                    <th>Tipe</th>
-                    <th>Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {transactions.map((row) => (
-                    <tr key={row.code}>
-                      <td>{row.code}</td>
-                      <td>{row.date}</td>
-                      <td>{row.product}</td>
-                      <td>{row.type}</td>
-                      <td>{formatMoney(row.total)}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </section>
-          </div>
-          </article>
-        ) : null}
-
-        {step.id === 'monitoring' ? (
-          <article className="panel">
-          <h3>Monitoring, Filter Tanggal, dan Cek Keuntungan</h3>
-          <div className="cards">
-            <section className="card">
               <div className="field-grid">
                 <label>
                   Cari nama produk
@@ -700,8 +661,6 @@ function App() {
                 <span className="tag">Pendapatan: {formatMoney(monitoringSummary.revenue)}</span>
                 <span className="tag">Estimasi untung: {formatMoney(monitoringSummary.profit)}</span>
               </div>
-            </section>
-            <section className="card">
               <table>
                 <thead>
                   <tr>
