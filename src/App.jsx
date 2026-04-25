@@ -639,6 +639,7 @@ function App() {
                     onChange={(event) => setMonitorKeyword(event.target.value)}
                   />
                 </label>
+                <div />
                 <label>
                   Tanggal mulai
                   <input
@@ -656,7 +657,7 @@ function App() {
                   />
                 </label>
               </div>
-              <div className="state-row">
+              <div className="state-row" style={{marginBottom: 10}}>
                 <span className="tag enabled">Total data: {monitoringSummary.count}</span>
                 <span className="tag">Pendapatan: {formatMoney(monitoringSummary.revenue)}</span>
                 <span className="tag">Estimasi untung: {formatMoney(monitoringSummary.profit)}</span>
